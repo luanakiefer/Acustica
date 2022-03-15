@@ -1,3 +1,7 @@
 venv/
 *.nc
 *.json
+*.csv
+
+__pycache__/
+*.pyc

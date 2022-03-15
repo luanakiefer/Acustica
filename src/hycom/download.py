@@ -62,7 +62,7 @@ if __name__ == '__main__':
                 pontos.append(Ponto(prof, lat, lon, salinidade, temperatura))
     
     with open(arquivo_csv, 'w') as fd:
-        fd.write('PROFUNDIDADE;LATITUDE;LONGITUDE;SALINIDADE;TEMPERATURA\n')
+        fd.write('PROFUNDIDADE;LATITUDE;LONGITUDE;SALINIDADE;TEMPERATURA;VELOCIDADE\n')
 
         for ponto in pontos:
             fd.write(ponto.csv())

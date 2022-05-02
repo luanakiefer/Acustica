@@ -1,7 +1,7 @@
 import requests
 from netCDF4 import Dataset
 from sys import argv
-from modelos.ponto import Ponto
+from simulacao_hycom.hycom.ponto import Ponto
 from modelos.intervalo import Intervalo
 from modelos.secao import Secao
 import utils

@@ -1,1 +1,3 @@
 # Acustica
+
+bool -> true/false

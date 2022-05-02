@@ -1,21 +1,26 @@
+from math import floor
+
 class Ponto():
     """
-    Classe que abstrai um valor de um ponto vindo do Hycom
+    Classe que guarda valores de um ponto vindo do Hycom
     """
 
-    def __init__(self, profundidade: int, latitude: float, longitude: float, salinidade: float, temperatura: float) -> None:
-        self.profundidade = profundidade
-        self.latitude = latitude
-        self.longitude = longitude
-        self.salinidade = salinidade
-        self.temperatura = temperatura
+    def __init__(self, profundidade: int, latitude: float, longitude: float, salinidade: float, temperatura: float, velocidade: float = None) -> None:
+        self.profundidade: int = floor(profundidade)
+        self.latitude: float = latitude
+        self.longitude: float = longitude
+        self.salinidade: float = salinidade
+        self.temperatura: float = temperatura
 
-        self._calcular_velocidade()
+        if velocidade == None:
+            self._calcular_velocidade()
+        else:
+            self.velocidade = velocidade
     
     def _calcular_velocidade(self) -> None:
         t: float = self.temperatura
         s: float = self.salinidade
-        p: float = self.profundidade
+        p: int = self.profundidade
 
         if (t == None or s == None or p == None):
             self.velocidade = None
@@ -38,3 +43,12 @@ class Ponto():
             f'{self.temperatura};',
             f'{self.velocidade}\n'
         ])
+
+def ponto_de_lista(valores: list) -> Ponto:
+    return Ponto(
+        valores[0],
+        valores[1],
+        valores[2],
+        valores[3],
+        valores[4]
+    )
